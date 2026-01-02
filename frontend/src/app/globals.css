@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* --- Custom Scrollbar for Modern UI --- */
+
+/* 1.Scrollbar-er size */
+::-webkit-scrollbar {
+  width: 8px; /* Vertical scrollbar-er width */
+  height: 8px; /* Horizontal scrollbar-er height */
+}
+
+/* 2. Track (when scrolling) */
+::-webkit-scrollbar-track {
+  background: #fff5f7; /* Very light pink/white background */
+  border-radius: 10px;
+}
+
+/* 3. Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ec489ab9, #f59e0b); /* Pink to Amber gradient */
+  border-radius: 10px;
+  border: 2px solid #fff5f7; /* Border to match track color */
+}
+
+/* 4. Handle hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #db2777, #d97706); /* Slightly deeper color on hover */
+}
