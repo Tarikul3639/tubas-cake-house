@@ -32,40 +32,45 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black text-slate-800 leading-[1.1] mb-6 italic">
+          {/* Hero Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-800 leading-[1.15] md:leading-[1.1] mb-4 md:mb-6 italic">
             Taste the{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-rose-400 font-black">
               Magic
             </span>{" "}
-            in <br />
-            Every Single Bite.
+            <br className="hidden sm:block" />
+            in Every Single Bite.
           </h1>
 
-          <p className="text-lg text-slate-500 font-medium max-w-lg mb-10 leading-relaxed">
+          {/* Hero Description */}
+          <p className="text-base md:text-lg text-slate-500 font-medium max-w-lg mb-8 md:mb-10 leading-relaxed px-1 sm:px-0">
             From classic vanilla to exotic truffle, we craft artisanal cakes
-            that make your special moments unforgettable. Freshly baked, just
-            for you.
+            that make your special moments unforgettable.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-2xl shadow-slate-200 flex items-center gap-3 group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-xl shadow-slate-200 flex items-center justify-center gap-3 group"
             >
               <Link href="/cart" className="flex items-center gap-3">
                 Order Your Cake
               </Link>
               <ArrowRight
-                size={20}
+                size={18}
                 className="group-hover:translate-x-1 transition-transform"
               />
             </motion.button>
 
-            <motion.button whileHover={{ scale: 1.05 }}>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              className="w-full sm:w-auto"
+            >
               <Link
                 href="/cakes"
-                className="px-8 py-4 bg-white text-slate-700 border border-pink-100 rounded-2xl font-bold hover:bg-pink-50 transition-colors"
+                className="flex items-center justify-center px-6 md:px-8 py-3.5 md:py-4 bg-white text-slate-700 border border-pink-100 rounded-2xl font-bold hover:bg-pink-50 transition-colors"
               >
                 View Menu
               </Link>
