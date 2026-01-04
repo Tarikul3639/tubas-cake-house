@@ -12,7 +12,7 @@ import SearchBar from "./SearchBar";
 const navLinks: { name: string; href: string }[] = [
   { name: "Home", href: "/" },
   { name: "Our Cakes", href: "/cakes" },
-  { name: "Special Orders", href: "/special" },
+  { name: "Special Orders", href: "/special-order" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-[100] transition-all duration-500 ${
+      className={`fixed w-full z-100 transition-all duration-500 ${
         scrolled ? "top-2 px-4" : "top-0 px-0"
       }`}
     >
