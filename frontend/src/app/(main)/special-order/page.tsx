@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { 
   Calendar, 
-  ChevronRight, 
   MessageSquare, 
   Layers, 
   Utensils, 
@@ -12,7 +10,6 @@ import {
 } from "lucide-react";
 
 export default function SpecialOrderPage() {
-  const [step, setStep] = useState(1);
 
   return (
     <main className="min-h-screen bg-[#fffafb] pt-28 pb-20">

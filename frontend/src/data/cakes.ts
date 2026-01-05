@@ -1,23 +1,29 @@
 import { StaticImageData } from "next/image";
-import cake1 from "@/app/assets/cakes/cake (5).jpg";
-import cake2 from "@/app/assets/cakes/cake (6).jpg";
-import cake3 from "@/app/assets/cakes/cake (7).jpg";
-import cake4 from "@/app/assets/cakes/cake (4).jpg";
 
-export interface Cake {
+import cake1 from "@/app/assets/cakes/cake (1).jpg";
+import cake2 from "@/app/assets/cakes/cake (2).jpg";
+import cake3 from "@/app/assets/cakes/cake (3).jpg";
+import cake4 from "@/app/assets/cakes/cake (4).jpg";
+import cake5 from "@/app/assets/cakes/cake (5).jpg";
+import cake6 from "@/app/assets/cakes/cake (6).jpg";
+import cake7 from "@/app/assets/cakes/cake (7).jpg";
+
+export type ICategory = "Bestseller" | "Trending" | "Classic" | "New" | "Custom" | "Popular";
+  
+export interface ICake {
   _id: string;
   name: string;
   price: number;
   rating: number;
-  badge: string;      // এটা UI তে ব্যাজ হিসেবে দেখাবে
-  category: string;   // এটা দিয়ে আমরা মেইন ফিল্টারিং করবো (যেমন: Custom, Bestseller)
-  weight: string;     // ওজন ফিল্টারের জন্য
+  badge: string;      
+  category: ICategory;  
+  weight: string;   
   imageUrl: StaticImageData;
   isLoved?: boolean;
   isInCart?: boolean;
 }
 
-export const initialCakes: Cake[] = [
+export const initialCakes: ICake[] = [
   {
     _id: "1",
     name: "Midnight Chocolate Truffle",
@@ -74,7 +80,7 @@ export const initialCakes: Cake[] = [
     badge: "Custom",
     category: "Custom",
     weight: "5 Lbs",
-    imageUrl: cake1, // আপনার কাছে কাস্টম কেকের ছবি থাকলে সেটা এখানে দিবেন
+    imageUrl: cake1, 
     isLoved: false,
     isInCart: false,
   },
@@ -113,5 +119,41 @@ export const initialCakes: Cake[] = [
     imageUrl: cake4,
     isLoved: false,
     isInCart: false,
-  }
+  },
+  {
+    _id: "9",
+    name: "Caramel Pecan Indulgence",
+    price: 48.0,
+    rating: 4.7,
+    badge: "Bestseller",
+    category: "Bestseller",
+    weight: "2 Lbs",
+    imageUrl: cake5,
+    isLoved: true,
+    isInCart: true,
+  },
+  {
+    _id: "10",
+    name: "Tropical Mango Mousse",
+    price: 40.0,
+    rating: 4.6,
+    badge: "New",
+    category: "New",
+    weight: "1 Lbs",
+    imageUrl: cake6,
+    isLoved: false,
+    isInCart: false,
+  },
+  {
+    _id: "11",
+    name: "Cookies & Cream Fantasy",
+    price: 44.0,
+    rating: 4.9,
+    badge: "Popular",
+    category: "Popular",
+    weight: "2 Lbs",
+    imageUrl: cake7,
+    isLoved: true,
+    isInCart: false,
+  },
 ];

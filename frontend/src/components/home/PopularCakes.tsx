@@ -75,7 +75,7 @@ const initialCakes: Cake[] = [
 export default function PopularCakes() {
   const [cakes, setCakes] = useState<Cake[]>(initialCakes);
 
-  const handleLoveClick = (id: string) => {
+  const onLoveClick = (id: string) => {
     setCakes((prevCakes) =>
       prevCakes.map((cake) =>
         cake._id === id ? { ...cake, isLoved: !cake.isLoved } : cake
@@ -83,7 +83,7 @@ export default function PopularCakes() {
     );
   };
 
-  const handleAddToCart = (id: string) => {
+    const onAddToCart = (id: string) => {
     setCakes((prevCakes) =>
       prevCakes.map((cake) =>
         cake._id === id ? { ...cake, isInCart: !cake.isInCart } : cake
@@ -121,8 +121,8 @@ export default function PopularCakes() {
               key={cake._id}
               cake={cake}
               index={index}
-              onLoveClick={handleLoveClick}
-              onAddToCart={handleAddToCart}
+              onLoveClick={onLoveClick}
+              onAddToCart={onAddToCart}
             />
           ))}
         </div>

@@ -11,7 +11,7 @@ type NavLink = {
 export default function DesktopMenu({ navLinks }: { navLinks: NavLink[] }) {
   const pathname = usePathname();
   return (
-    <nav className="hidden lg:flex items-center bg-white/40 backdrop-blur-md p-1.5 rounded-full border border-pink-100/50 shadow-sm shadow-pink-100/20">
+    <nav className="hidden md:flex items-center bg-white/40 backdrop-blur-md p-1.5 rounded-full border border-pink-100/50 shadow-sm shadow-pink-100/20">
       <ul className="flex items-center space-x-1">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
