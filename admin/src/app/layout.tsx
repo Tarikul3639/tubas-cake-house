@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// APP Logo
-import Logo from "@/app/assets/Logo.png";
+// import Logo from "@/app/";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,11 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tuba's Cake House",
-  description: "Delicious homemade cakes and pastries",
-  icons: {
-    icon: Logo.src,
-  },
+  title: "Tuba's Cake House Admin",
+  description: "Admin panel for Tuba's Cake House",
 };
 
 export default function RootLayout({
