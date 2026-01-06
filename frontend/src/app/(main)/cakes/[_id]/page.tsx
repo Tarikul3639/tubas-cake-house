@@ -66,6 +66,15 @@ export default function CakeDetailsPage() {
   const images = [image1, image2, image3, image1];
 
   const [activeImage, setActiveImage] = useState(images[0]);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * 100;
+    const y = ((e.pageY - top) / height) * 100;
+    setMousePos({ x, y });
+  };
 
   return (
     <main className="min-h-screen bg-[#fffafb] pt-24 pb-20">
@@ -114,17 +123,25 @@ export default function CakeDetailsPage() {
             {/* Main Active Image - Large Display */}
             <div className="flex-1 w-full">
               <motion.div
-                key={activeImage.src} 
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                onMouseMove={handleMouseMove}
+                key={activeImage.src}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="relative aspect-square w-full rounded-[40px] overflow-hidden border-2 border-pink-100 shadow-2xl shadow-pink-100/50"
+                className="relative aspect-square w-full rounded-[40px] overflow-hidden border-2 border-pink-100 shadow-2xl shadow-pink-100/50 cursor-zoom-in"
               >
                 <Image
                   src={activeImage}
                   alt={cake.name}
                   fill
-                  className="object-cover"
+                  style={{
+                    transformOrigin: `${mousePos.x}% ${mousePos.y}%`,
+                  }}
+                  className={`object-cover transition-transform duration-200 ${
+                    isHovering ? "scale-[2]" : "scale-100"
+                  }`}
                   priority
                 />
 

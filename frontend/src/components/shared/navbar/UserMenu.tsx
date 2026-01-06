@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { tr } from "motion/react-client";
 
 interface UserMenuProps {
   variant?: "desktop" | "mobile";
@@ -30,7 +31,7 @@ export default function UserMenu({ variant = "desktop" }: UserMenuProps) {
   };
 
   // Mocked authentication state
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const menuRef = useOutsideClick(() => {
     if (isUserMenuOpen) setIsUserMenuOpen(false);
@@ -39,7 +40,7 @@ export default function UserMenu({ variant = "desktop" }: UserMenuProps) {
   const memberLinks = [
     {
       label: "Profile Settings",
-      href: "/profile",
+      href: "/settings",
       icon: <Settings size={16} />,
     },
     { label: "Order Tracking", href: "/orders", icon: <Package size={16} /> },

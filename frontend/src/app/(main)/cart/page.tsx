@@ -26,7 +26,7 @@ export default function CartPage() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-  const freeDeliveryThreshold = 100; // ১০০ ডলার হলে ডেলিভারি ফ্রি
+  const freeDeliveryThreshold = 100;
   const deliveryFee = subtotal > freeDeliveryThreshold ? 0 : 5.0;
   const progress = Math.min((subtotal / freeDeliveryThreshold) * 100, 100);
 
@@ -66,7 +66,7 @@ export default function CartPage() {
               </h1>
             </header>
 
-            {/* 1. Free Delivery Progress - খালি ভাব দূর করবে */}
+            {/* 1. Free Delivery Progress */}
             <div className="bg-white p-6 rounded-[32px] border border-pink-50 mb-8 shadow-sm">
               <div className="flex justify-between items-center mb-3">
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-2">
@@ -235,13 +235,13 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <button className="w-full bg-pink-500 hover:bg-white hover:text-slate-900 py-5 rounded-[24px] font-black uppercase tracking-[0.3em] text-[11px] flex items-center justify-center gap-3 transition-all group shadow-xl shadow-pink-500/20 active:scale-95">
+              <Link href="/checkout" className="w-full bg-pink-500 hover:bg-white hover:text-slate-900 py-5 rounded-[24px] font-black uppercase tracking-[0.3em] text-[11px] flex items-center justify-center gap-3 transition-all group shadow-xl shadow-pink-500/20 active:scale-95">
                 Secure Checkout
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </button>
+              </Link>
             </div>
 
             {/* 3. Trust Badges */}
