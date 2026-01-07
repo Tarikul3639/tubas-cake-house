@@ -1,23 +1,28 @@
+"use client";
+import React, { useState } from "react";
 import Sidebar from "@/components/admin/sidebar";
 import TopNav from "@/components/admin/top-nav";
+import { cn } from "@/lib/utils";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <div className="flex h-screen bg-slate-50">
-      {/* Sidebar - Fixed width */}
-      <Sidebar />
+    <div className="flex min-h-screen bg-white">
+      {/* Sidebar - Google Classroom Style */}
+      <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
 
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Navbar */}
-        <TopNav />
-
-        {/* Dynamic Content */}
-        <main className="flex-1 overflow-y-auto p-6">
-          {children}
+      {/* Main Wrapper */}
+      <div className="flex-1 flex flex-col min-h-screen transition-all duration-300">
+        <TopNav isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+        
+        <main className={cn(
+          "flex-1 p-5 transition-all duration-300 pt-18",
+          isExpanded ? "md:ml-70" : "md:ml-20"
+        )}>
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
       </div>
     </div>
