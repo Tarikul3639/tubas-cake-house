@@ -10,19 +10,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { CakeCategory } from "@/types/cakes";
+import { ICategory } from "@/types/cakes";
 
 interface FilterProps {
   searchTerm: string;
   setSearchTerm: (val: string) => void;
   resultsCount: number;
-  selectedCategory: CakeCategory | "All";
-  setSelectedCategory: (val: CakeCategory | "All") => void;
+  selectedCategory: ICategory;
+  setSelectedCategory: (val: ICategory) => void;
   sortBy: string;
   setSortBy: (val: string) => void;
 }
 
-const CATEGORIES: (CakeCategory | "All")[] = ["All", "Signature", "Birthday", "Wedding", "Cupcake", "Chocolate"];
+const CATEGORIES: (ICategory)[] = ["All", "Signature", "Birthday", "Wedding", "Cupcake", "Chocolate"];
 
 const SORT_OPTIONS = [
   { label: "Newest First", value: "newest", icon: Clock },

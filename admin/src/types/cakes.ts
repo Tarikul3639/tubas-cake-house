@@ -1,152 +1,52 @@
-/* ======================================================
-   Cake Product Types (Admin Panel – Production Ready)
-   Business: Cake E-Commerce
-   Database: MongoDB
-   Language: TypeScript
-====================================================== */
 
-/* ---------------------------------- */
-/* Common Types                        */
-/* ---------------------------------- */
-
-export type ProductStatus =
-  | "active"
-  | "inactive"
-  | "out_of_stock";
-
-export type DiscountType =
-  | "percentage"
-  | "flat";
-
-export type CakeCategory =
-  | "Signature"
+// ----------------------------
+// Category Type (Frontend)
+// ----------------------------
+export type ICategory =
   | "Birthday"
   | "Wedding"
-  | "Cupcake"
-  | "Chocolate"
+  | "Anniversary"
+  | "Graduation"
+  | "Baby Shower"
+  | "Holiday"
   | "Custom"
-  | "Anniversary";
+  | "Kids"
+  | string;
 
-/* ---------------------------------- */
-/* Cake Variant (Size / Weight)        */
-/* ---------------------------------- */
+// ----------------------------
+// Variant Type (Frontend)
+// ----------------------------
+export type IVariant = {
+  name: string;       // Variant name, e.g., Chocolate, Vanilla
+  price: number;      // Variant price
+  stock: number;      // Variant stock
+};
 
-export interface CakeVariant {
-  _id: string;
+// ----------------------------
+// Cake Product Type (Frontend)
+// ----------------------------
+export type ICake = {
+  _id: string;                // MongoDB ObjectId as string
+  name: string;               // Cake name
+  slug: string;               // URL-friendly name
+  description: string;        // Full description
+  shortDescription: string;   // Short preview description
+  category: ICategory;           // Cake category: Birthday, Wedding, etc.
 
-  label: string;          // "1 Pound", "2 Pound", "Sugar Free"
-  weightKg: number;
+  price: number;              // Base price
+  discount?: number;          // Optional e.g., 10 means 10% off
 
-  price: number;
-  stock: number;
+  stock: number;              // Total stock available
+  variants?: IVariant[];       // Optional variants (flavor, size)
+  isCustomizable: boolean;    // Can user add message / special design
 
-  isDefault?: boolean;
-}
+  images: string[];           // Main image + gallery
 
-/* ---------------------------------- */
-/* Extra Toppings / Add-ons            */
-/* ---------------------------------- */
+  rating?: number;            // Average rating (0-5)
+  reviewCount?: number;       // Total number of reviews
+  salesCount?: number;        // Total sold quantity
 
-export interface CakeAddon {
-  _id: string;
-
-  name: string;           // "Extra Cherry"
-  price: number;
-
-  isAvailable: boolean;
-}
-
-/* ---------------------------------- */
-/* Offer / Discount                    */
-/* ---------------------------------- */
-
-export interface CakeOffer {
-  type: DiscountType;
-  value: number;
-
-  startDate?: string;     // ISO
-  endDate?: string;       // ISO
-
-  isActive: boolean;
-}
-
-/* ---------------------------------- */
-/* Customization Options               */
-/* ---------------------------------- */
-
-export interface CakeCustomization {
-  allowMessage: boolean;
-  maxMessageLength: number;
-
-  addons: CakeAddon[];
-}
-
-/* ---------------------------------- */
-/* Delivery Settings                   */
-/* ---------------------------------- */
-
-export interface CakeDelivery {
-  sameDayAvailable: boolean;
-  deliveryCharge: number;
-}
-
-/* ---------------------------------- */
-/* SEO Metadata                        */
-/* ---------------------------------- */
-
-export interface CakeSEO {
-  metaTitle: string;
-  metaDescription: string;
-  keywords: string[];
-}
-
-/* ---------------------------------- */
-/* Cake Product (Main Model)           */
-/* ---------------------------------- */
-
-export interface CakeProduct {
-  _id: string;
-
-  /* Basic Information */
-  name: string;
-  slug: string;
-
-  shortDescription: string;
-  description: string;
-
-  /* Media */
-  imageUrl: string;
-  galleryImages: string[];
-
-  /* Classification */
-  category: CakeCategory;            // "birthday", "wedding", etc.
-  tags: string[];
-
-  /* Variants */
-  variants: CakeVariant[];
-
-  /* Customization */
-  customization: CakeCustomization;
-
-  /* Delivery */
-  delivery: CakeDelivery;
-
-  /* Offer */
-  offer?: CakeOffer;
-
-  /* Visibility */
-  isFeatured: boolean;
-  status: ProductStatus;
-
-  /* Analytics */
-  rating: number;
-  totalReviews: number;
-  totalSold: number;
-
-  /* SEO */
-  seo?: CakeSEO;
-
-  /* Timestamps */
-  createdAt: string;
-  updatedAt: string;
-}
+  isActive: boolean;          // Active / inactive product
+  createdAt: string;          // Date as ISO string
+  updatedAt: string;          // Date as ISO string
+};

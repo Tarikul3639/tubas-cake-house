@@ -10,9 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { CakeCategory } from "@/types/cakes";
+import { ICategory } from "@/types/cakes";
 
-const CATEGORIES: CakeCategory[] = [
+const CATEGORIES: ICategory[] = [
   "Signature",
   "Birthday",
   "Wedding",

@@ -8,7 +8,7 @@ interface HeaderProps {
   setView: (view: "grid" | "table") => void;
 }
 
-export function InventoryHeader({ view, setView }: HeaderProps) {
+export function Header({ view, setView }: HeaderProps) {
   return (
     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
       <div>
