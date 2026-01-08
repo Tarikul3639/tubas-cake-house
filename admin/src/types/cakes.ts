@@ -18,6 +18,15 @@ export type DiscountType =
   | "percentage"
   | "flat";
 
+export type CakeCategory =
+  | "Signature"
+  | "Birthday"
+  | "Wedding"
+  | "Cupcake"
+  | "Chocolate"
+  | "Custom"
+  | "Anniversary";
+
 /* ---------------------------------- */
 /* Cake Variant (Size / Weight)        */
 /* ---------------------------------- */
@@ -110,7 +119,7 @@ export interface CakeProduct {
   galleryImages: string[];
 
   /* Classification */
-  category: string;            // "birthday", "wedding", etc.
+  category: CakeCategory;            // "birthday", "wedding", etc.
   tags: string[];
 
   /* Variants */

@@ -9,7 +9,7 @@ export const cakeProducts: CakeProduct[] = [
     description: "Premium dark chocolate truffle cake made with Belgian cocoa.",
     imageUrl: "https://images.unsplash.com/photo-1601972599720-bb0c5b1c8c99",
     galleryImages: [],
-    category: "birthday",
+    category: "Birthday",
     tags: ["chocolate", "best-seller"],
 
     variants: [
@@ -79,7 +79,7 @@ export const cakeProducts: CakeProduct[] = [
     description: "Classic red velvet cake with cream cheese frosting.",
     imageUrl: "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     galleryImages: [],
-    category: "anniversary",
+    category: "Anniversary",
     tags: ["red-velvet", "popular"],
 
     variants: [
@@ -130,7 +130,7 @@ export const cakeProducts: CakeProduct[] = [
     description: "Chocolate sponge layered with whipped cream & cherries.",
     imageUrl: "https://images.unsplash.com/photo-1542826438-8b6b6c3b1c8d",
     galleryImages: [],
-    category: "birthday",
+    category: "Signature",
     tags: ["classic", "cherry"],
 
     variants: [
@@ -174,7 +174,7 @@ export const cakeProducts: CakeProduct[] = [
     description: "Light vanilla sponge with smooth buttercream frosting.",
     imageUrl: "https://images.unsplash.com/photo-1602351447937-745cb720612f",
     galleryImages: [],
-    category: "custom",
+    category: "Custom",
     tags: ["vanilla"],
 
     variants: [
