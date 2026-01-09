@@ -4,7 +4,7 @@ import { Search, FilterX } from "lucide-react";
 import { OrderHeader } from "./_components/OrderHeader";
 import { OrderTabs } from "./_components/OrderTabs";
 import { OrderTable } from "./_components/OrderTable";
-import { ordersMockData } from "@/store/order"; // আপনার দেওয়া ২০টি ডাটা
+import { ordersMockData } from "@/store/order"; 
 import { OrderData, OrderStatus, PaymentStatus, PaymentMethod } from "@/types/order";
 
 export default function OrdersPage() {
@@ -13,7 +13,7 @@ export default function OrdersPage() {
   const [activeTab, setActiveTab] = useState<OrderStatus | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // ১. হ্যান্ডলার: অর্ডার স্ট্যাটাস আপডেট (Pending -> Processing etc.)
+  // 1. Status Handler
   const handleStatusUpdate = (orderId: string, newStatus: OrderStatus) => {
     setAllOrders((prev) =>
       prev.map((order) =>
@@ -23,7 +23,7 @@ export default function OrdersPage() {
     console.log(`Order ${orderId} status changed to ${newStatus}`);
   };
 
-  // ২. হ্যান্ডলার: পেমেন্ট স্ট্যাটাস ও মেথড আপডেট (ডায়ালগ থেকে আসবে)
+  // 2. Payment Handler
   const handlePaymentUpdate = (
     orderId: string, 
     newStatus: PaymentStatus, 
@@ -42,7 +42,7 @@ export default function OrdersPage() {
     console.log(`Order ${orderId} payment updated: ${newStatus} via ${newMethod}`);
   };
 
-  // ফিল্টারিং লজিক (Memoized for performance)
+  // Filtering Logic (Memoized for performance)
   const filteredOrders = useMemo(() => {
     return allOrders.filter((order) => {
       const matchesTab = activeTab === "all" || order.status === activeTab;
@@ -73,7 +73,7 @@ export default function OrdersPage() {
             <OrderTabs 
                 activeTab={activeTab} 
                 onTabChange={setActiveTab} 
-                orders={allOrders} // Tab-এ কাউন্ট দেখানোর জন্য
+                orders={allOrders} // For showing count on tabs
             />
             
             <div className="relative group lg:w-96 w-full">
@@ -98,7 +98,7 @@ export default function OrdersPage() {
             <OrderTable
               filteredOrders={filteredOrders}
               onStatusUpdate={handleStatusUpdate}
-              onPaymentUpdate={handlePaymentUpdate} // ডায়ালগ ফাংশন পাস করা হলো
+              onPaymentUpdate={handlePaymentUpdate} // Dialog function passed
             />
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-slate-400">
