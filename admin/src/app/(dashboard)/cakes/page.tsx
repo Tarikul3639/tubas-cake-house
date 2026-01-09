@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Layers } from "lucide-react";
 
 // --- Types (New Nexion Standard) ---
@@ -13,9 +13,19 @@ import { CakeCard } from "./_components/CakeCard";
 import { TableView } from "./_components/TableView";
 
 export default function CakesAdminPage() {
-  const [view, setView] = useState<"grid" | "table">("grid");
+  const [view, setView] = useState<"grid" | "table">(() => {
+    if (typeof window === "undefined") return "grid";
+    return (localStorage.getItem("cakes_view") as "grid" | "table") || "grid";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cakes_view", view);
+  }, [view]);
+
   const [cakes, setCakes] = useState<ICake[]>(initialCakes as ICake[]);
-  const [selectedCategory, setSelectedCategory] = useState<ICategory | "All">("All");
+  const [selectedCategory, setSelectedCategory] = useState<ICategory | "All">(
+    "All"
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("newest");
 
@@ -35,12 +45,13 @@ export default function CakesAdminPage() {
     result = result.filter((c) => {
       const matchesCategory =
         selectedCategory === "All" || c.category === selectedCategory;
-      
+
       const matchesSearch =
         c.name.toLowerCase().includes(term) ||
-        (c.shortDescription && c.shortDescription.toLowerCase().includes(term)) ||
+        (c.shortDescription &&
+          c.shortDescription.toLowerCase().includes(term)) ||
         c._id.toLowerCase().includes(term);
-        
+
       return matchesCategory && matchesSearch;
     });
 
@@ -60,7 +71,9 @@ export default function CakesAdminPage() {
         case "newest":
         default:
           // Sorting by ISO string date
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          return (
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          );
       }
     });
 

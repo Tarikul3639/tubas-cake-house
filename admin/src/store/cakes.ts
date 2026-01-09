@@ -17,7 +17,7 @@ export const initialCakes: ICake[] = [
     ],
     isCustomizable: true,
     images: [
-      "/images/cakes/chocolate-fudge-1.jpg",
+      "https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=800",
       "/images/cakes/chocolate-fudge-2.jpg",
       "/images/cakes/chocolate-fudge-3.jpg"
     ],
