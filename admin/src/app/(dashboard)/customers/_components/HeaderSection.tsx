@@ -15,10 +15,10 @@ export default function HeaderSection() {
           <span className="w-8 h-px bg-slate-200" /> Nexion Relationship Manager
         </p>
       </div>
-      <button className="flex items-center justify-center gap-3 px-8 py-4 bg-slate-950 text-white rounded-[24px] text-[11px] font-black uppercase tracking-widest hover:bg-pink-600 transition-all shadow-xl shadow-slate-200 active:scale-95 group">
+      {/* <button className="flex items-center justify-center gap-3 px-8 py-4 bg-slate-950 text-white rounded-[24px] text-[11px] font-black uppercase tracking-widest hover:bg-pink-600 transition-all shadow-xl shadow-slate-200 active:scale-95 group">
         <UserPlus size={18} className="group-hover:rotate-12 transition-transform" /> 
         Register New Customer
-      </button>
+      </button> */}
     </div>
   );
 }

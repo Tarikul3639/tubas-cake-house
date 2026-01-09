@@ -10,7 +10,7 @@ export default function ActionsColumn({ user }: { user: ICustomer }) {
     <td className="px-10 py-6 text-right">
       <div className="flex items-center justify-end gap-2">
         {/* Edit Navigation */}
-        <Link href={`customer/${user._id}`}>
+        <Link href={`customers/${user._id}`}>
           <motion.button
             whileHover={{
               scale: 1.1,

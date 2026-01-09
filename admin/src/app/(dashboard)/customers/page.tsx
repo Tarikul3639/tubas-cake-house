@@ -31,7 +31,7 @@ export default function CustomersPage() {
     customers.filter((c) => c.membershipTier === "Platinum").length
   );
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pt-5 pb-12">
       <HeaderSection />
       <SearchTierSection
         searchQuery={searchQuery}

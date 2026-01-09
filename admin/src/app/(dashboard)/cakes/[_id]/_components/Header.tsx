@@ -12,8 +12,8 @@ interface IHeader {
 
 export default function Header({ cake, onSave, isEditMode }: IHeader) {
   return (
-    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 px-8 py-4 shadow-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="bg-white/90 backdrop-blur-xl px-8 py-4">
+      <div className="mx-auto flex items-center justify-between">
         <div className="flex items-center gap-6">
           {/* Back Button */}
           <Link href="/cakes" className="p-3 bg-slate-100 hover:bg-pink-50 rounded-2xl transition-all group">

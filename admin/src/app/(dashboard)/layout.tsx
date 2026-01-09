@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Sidebar from "@/components/admin/sidebar";
-import TopNav from "@/components/admin/top-nav";
+import Sidebar from "@/components/shared/sidebar";
+import TopNav from "@/components/shared/top-nav";
 import { cn } from "@/lib/utils";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

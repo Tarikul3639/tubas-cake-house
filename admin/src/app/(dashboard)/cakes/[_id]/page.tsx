@@ -76,7 +76,7 @@ export default function CakeEditPage() {
   if (!cake) return <CakeNotFound />;
 
   return (
-    <div className="min-h-screen w-full bg-[#F8FAFC] pb-24 font-sans text-slate-900">
+    <div className="min-h-screen w-full pb-24 font-sans text-slate-900">
       <HeaderSection cake={cake} isEditMode={isEditMode} onSave={handleSave} />
 
       <main className="w-full mx-auto mt-8 grid grid-cols-12 gap-8">
