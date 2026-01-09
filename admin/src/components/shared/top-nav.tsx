@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Menu, Search, Bell, X, CakeSlice } from "lucide-react";
+import { Menu, Search, Bell, X, CakeSlice, Command } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
@@ -77,19 +77,37 @@ export default function TopNav({ isExpanded, setIsExpanded }: TopNavProps) {
       {/* Center: Modern Floating Search Bar */}
       <div className="flex-1 max-w-xl mx-6 hidden sm:block">
         <div className="relative group">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-pink-500 transition-colors">
-            <Search size={18} strokeWidth={2} />
+          {/* --- Left Icon: Search --- */}
+          <div className="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none">
+            <Search
+              size={18}
+              strokeWidth={2.5}
+              className="text-slate-400 group-focus-within:text-pink-500 group-focus-within:scale-110 transition-all duration-300"
+            />
           </div>
+
+          {/* --- Main Input Field --- */}
           <input
             type="text"
             placeholder="Search orders, cakes or analytics..."
-            className="w-full bg-slate-50 border border-slate-200 py-2.5 pl-11 pr-4 rounded-2xl text-sm focus:bg-white focus:ring-4 focus:ring-pink-500/5 focus:border-pink-500/30 transition-all outline-none text-slate-700 placeholder:text-slate-400"
+            className="w-full pl-12 pr-6 py-3.5 bg-white border border-slate-200 rounded-[24px] text-sm focus:outline-none focus:ring-4 focus:ring-pink-500/5 focus:border-pink-200 transition-all font-normal font-sans"
           />
-          <div className="absolute inset-y-0 right-3 flex items-center">
-            <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-[10px] font-medium text-slate-400 bg-white border border-slate-200 rounded-md">
-              ⌘K
-            </kbd>
+
+          {/* --- Right Side: KBD Shortcut --- */}
+          <div className="absolute inset-y-0 right-4 flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1 px-2.5 py-1 bg-white border border-slate-200 rounded-xl shadow-sm group-focus-within:border-pink-200 group-focus-within:bg-pink-50/30 transition-colors">
+              <Command
+                size={10}
+                className="text-slate-400 group-focus-within:text-pink-400"
+              />
+              <span className="text-[10px] font-black text-slate-400 group-focus-within:text-pink-500">
+                K
+              </span>
+            </div>
           </div>
+
+          {/* --- Bottom Glow Accent (Visible on Focus) --- */}
+          <div className="absolute -bottom-px left-10 right-10 h-px bg-linear-to-r from-transparent via-pink-500/40 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
         </div>
       </div>
 
